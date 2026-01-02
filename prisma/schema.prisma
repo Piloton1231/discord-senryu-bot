@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model channel_settings {
+  id         Int      @id @default(autoincrement())
+  guild_id   String
+  channel_id String
+  created_at DateTime @default(now())
+
+  @@unique([guild_id, channel_id])
+  @@index([guild_id])
+  @@index([channel_id])
+}
+
+model senryu_record {
+  id         Int      @id @default(autoincrement())
+  guild_id   String
+  channel_id String
+  message_id String   @unique
+  line1      String   // 5音
+  line2      String   // 7音
+  line3      String   // 5音
+  author_id  String
+  detected_at DateTime @default(now())
+
+  @@index([guild_id])
+  @@index([author_id])
+  @@index([detected_at])
+}

@@ -1,0 +1,14 @@
+{
+  "name": "discord-senryu-bot",
+  "version": "1.0.0",
+  "description": "Discord bot that detects Japanese senryu (5-7-5 haiku)",
+  "author": "Your Name",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build": "nest build",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:prod": "node dist/main"
+  }
+}
